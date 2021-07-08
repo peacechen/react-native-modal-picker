@@ -5,6 +5,7 @@ export interface IOption {
   key: React.Key;
   label?: string;
   section?: boolean;
+  testID?: string;
   accessibilityLabel?: string;
   component?: React.ReactNode;
   [key:string]: any;
@@ -348,6 +349,28 @@ interface IModalSelectorProps<TOption> {
    * Default is `''`
    */
   selectedKey?: React.Key;
+
+  /**
+   * enables short press. This is regular touch behavior.
+   */
+  enableShortPress?: boolean;
+
+  /**
+   * enables long press. When true
+   */
+  enableLongPress?: boolean;
+
+  /**
+   * This prefixes each selectable option's testID prop if no testID keys are provided in data array objects. 
+   * Default for each option's testID: 'default-<optionLabel>'
+   */
+  optionsTestIDPrefix?: string;
+ 
 }
 
-export default class ModalSelector<TOption = IOption> extends React.Component<IModalSelectorProps<TOption> & FlatListProps<any>, any> {}
+ 
+
+export default class ModalSelector<TOption = IOption> extends React.Component<IModalSelectorProps<TOption>>  {
+  open: (args0?: {longPress?: boolean, [args1:string]: any})=> void;
+  getSelectedItem: () => TOption;
+}

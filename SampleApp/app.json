@@ -3,7 +3,6 @@
     "name": "React Native Modal Selector Sample",
     "slug": "SampleApp",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
     "platforms": [
       "ios",
       "android",
